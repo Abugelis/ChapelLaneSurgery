@@ -1,0 +1,1164 @@
+/*---------------------------------------------------------- BASE CSS ----------------------------------------------------------------------------------------------------- */
+
+/* ---------------------------- CSS RESET ------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100dvh;
+    overflow-y: hidden;
+}
+
+/* ---------------------------- ELEMENTS ------------------------------- */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+a:focus {
+    outline: 2px solid #1E1E1E;
+    outline-offset: 2px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+/* ---------------------------- FONTS ------------------------------- */
+
+/* =====================
+   MANROPE
+===================== */
+
+@font-face {
+    font-family: "Manrope";
+    src: url("../assets/fonts/manrope-extrabold-webfont.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =====================
+   INTER
+===================== */
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/inter-regular-webfont.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/inter-medium-webfont.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/inter-semibold-webfont.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ---------------------------- VARIABLES ------------------------------- */
+:root {
+    /* Updated Colors */
+    --color-primary: #566983;       /* Dark Forest Green: Deeper and more refined for headings and main elements */
+    --color-secondary: White;     /* Creamy Off-White: A warmer background choice to soften the palette */
+    --color-accent: #591659;       /* Muted Antique Gold: Closely matches the logo's metallic gold for buttons and CTAs */
+    --color-accent-alt: #72256d;     /* Darker Gold: For a richer, secondary accent */
+    --color-section-soft: White;   /* Warm Taupe: A complementary neutral for softer section backgrounds */
+    --color-neutral-light: #FFFFFF;  /* Pure White: Main background fallback */
+    --color-neutral-dark: #262626;   /* Deep Charcoal: Refined dark text color */
+    --color-cards: #bfc7c1;              /* For muted text */
+
+    /* Updated Gradient */
+    --gradient-primary: linear-gradient(135deg, #566983 10%, #591659 100%); /* Smooth transition from Forest Green to Antique Gold */
+
+    /* Typography */
+    --font-primary: 'Manrope', sans-serif;   /* Used for bold headings and attention-grabbing elements */
+    --font-secondary: 'Inter', sans-serif;    /* Used for body text, UI components, and readability */
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    /* Font Sizes */
+    --fs-h1: 2.8rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.75rem;
+    --fs-h4: 1.5rem;
+    --fs-h5: 1.25rem;
+    --fs-h6: 1rem;
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+
+    /* Line Heights */
+    --lh-h1: 1.2;
+    --lh-h2: 1.3;
+    --lh-h3: 1.35;
+    --lh-body: 1.6;
+
+    /* Letter Spacing */
+    --ls-heading: 0.5px;
+    --ls-body: 0px;
+
+    /* Layout / UI */
+    --container-width: 1920px;
+    --container-padding: 1rem;
+    --section-heading-padding: 1rem;
+    --radius: 45px;
+    --small-radius: 10px;
+    --shadow: 1px 1px 5px rgba(0,0,0,0.2);
+
+
+    /* Layering */
+    --layer-base: 1;
+    --layer-nav: 100;
+    --layer-overlay: 200;
+    --layer-toggle: 300;
+    --layer-menu: 250;
+
+    /* Section spacing */
+    --space-section: 3rem;
+    --space-section-lg: 6rem;
+
+    --section-heading-padding: 1rem;
+
+    /* UI */
+    --header-height: 100px;
+    --logo-size: 120px;
+    --icon-size: 84px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ---------------------------- TYPOGRAPHY ------------------------------- */
+body {
+    font-family: var(--font-secondary);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    letter-spacing: var(--ls-body);
+    color: var(--color-text);
+    background-color: var(--color-main-bg);
+    padding-top: var(--header-height);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    letter-spacing: var(--ls-heading);
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+h4 {
+    font-size: var(--fs-h4);
+}
+
+h5 {
+    font-size: var(--fs-h5);
+}
+
+p {
+    font-size: var(--fs-body);
+}
+
+ul {
+    font-size: var(--fs-body);
+}
+
+li {
+    font-size: var(--fs-body);
+}
+
+.sub-text {
+    color: var(--color-text-muted);
+    font-size: var(--fs-h5);
+    font-family: var(--font-secondary);
+}
+
+/* ---------------------------- LAYOUT SYSTEM ------------------------------- */
+
+/* Horizontal container ONLY */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+}
+
+/* Vertical spacing (sections) */
+.section {
+    padding-block: var(--space-section);
+}
+
+.section-lg {
+    padding-block: var(--space-section-lg);
+}
+
+/* Section headings */
+.section-heading {
+    margin-bottom: var(--section-heading-padding);
+}
+
+/* Header height */
+header {
+    height: var(--header-height);
+}
+
+/* ---------------------------- IMAGES ------------------------------- */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ---------------------------- UTILITIES ------------------------------- */
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section.content ul{
+    list-style: disc;
+    margin-left: 2rem;
+}
+
+/* ---------------------------- RESPONSIVE ------------------------------- */
+
+/* Tablet */
+@media (min-width: 768px) {
+    :root {
+        --container-padding: 2rem;
+        --space-section: 5rem;
+        --space-section-lg: 7rem;
+
+        --fs-h1: 3.5rem;
+        --fs-h2: 2.5rem;
+        --fs-h3: 2rem;
+    }
+
+    a {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    :root {
+        --container-padding: 3rem;
+        --space-section: 4rem;
+        --space-section-lg: 8rem;
+
+        --fs-h1: 4rem;
+        --fs-h2: 2.75rem;
+        --fs-h3: 2rem;
+        --fs-h4: 1.4rem;
+    }
+
+    a {
+        font-size: 1.2rem;
+    }
+
+    p, li {
+        font-size: 1.3rem;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1440px) {
+    :root {
+        --container-padding: 4rem;
+    }
+
+    h1 { font-size: 4.5rem; }
+    h2 { font-size: 3rem; }
+    h3 { font-size: 2.5rem; }
+
+    a { font-size: 1.6rem; }
+    p,li { font-size: 1.4rem; }
+}
+
+@media (min-width: 1920px) {
+    :root {
+        --container-padding: 0;
+        --container-width: 1600px;
+    }
+
+    h1 { font-size: 4.5rem; }
+    h2 { font-size: 3rem; }
+    h3 { font-size: 2rem; }
+    h4 {font-size: 1.8rem;}
+
+    a { font-size: 1.6rem; }
+    p,li { font-size: 1.4rem; }
+}
+
+/* Mobile utilities */
+@media (max-width: 767px) {
+    .flex {
+        flex-direction: column;
+    }
+}
+
+/* ================================================================   COMPONENTS CSS ================================================================================= */
+
+/* --------------------- Buttons ------------------- */
+
+.primary-btn {
+    background: var(--color-accent);
+    color: var(--color-neutral-light);
+    cursor: pointer;
+    
+    min-width: 170px;
+
+    padding: 0.7rem 3.5rem;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    
+    border-radius: var(--radius);
+
+    box-shadow: inset -1px -1px 4px var(--color-neutral-dark),
+    inset 1px 1px 8px var(--color-neutral-light);
+
+    transition: background var(--transition-medium), scale var(--transition-medium), color var(--transition-medium) ;
+}
+
+.primary-btn:hover {
+    background: var(--color-primary);
+    scale: 1.1;
+    color: var(--color-neutral-light);
+}
+
+
+.shop-btn {
+    background: var(--color-primary);
+    color: var(--color-neutral-light);
+    
+    
+
+    padding: 0.7rem 3.5rem;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    
+    border-radius: var(--radius);
+
+    box-shadow: inset -1px -1px 4px var(--color-neutral-dark),
+    inset 1px 1px 8px var(--color-neutral-light);
+
+    transition: background var(--transition-medium), scale var(--transition-medium), color var(--transition-medium) ;
+}
+
+.shop-btn:hover {
+    background: var(--color-accent);
+    scale: 1.1;
+    color: var(--color-neutral-dark);
+}
+
+/* --------------------- CTA ------------------- */
+
+section.cta {
+    background: var(--gradient-primary);
+}
+
+.cta div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.cta div p{
+    padding-bottom: 2rem;
+}
+
+/* --------------------- Table ------------------- */
+
+table {
+    width: 100%;
+}
+
+table th {
+    text-align: left;
+}
+
+.location iframe {
+    width: 100%;
+    height: 20rem;
+}
+
+body a {
+    color: #72256d;
+}
+
+/* --------------------- Announcments ------------------- */
+
+.announcements-flex {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 0px solid #1E1E1E ;
+    box-shadow: 1px 1px 20px #262626;
+}
+
+.card img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+    padding-bottom: 2rem;
+    flex-grow: 1; /* Fills the remaining card space */
+    height: 100%;
+}
+
+.card-text .primary-btn {
+    margin-top: auto; /* Pushes the button to the bottom */
+    align-self: center; /* Adjust to center or stretch if preferred */
+}
+
+.card-text p {
+    padding-bottom: 1rem;
+}
+
+
+@media(min-width: 1024px) {
+    .announcements-flex{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .time-place .container{
+        display: flex;
+        flex-direction: row;
+        gap: 6rem;
+    }
+
+    .hours {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .hours h4 {
+        padding-top: 4rem;
+    }
+
+    .location {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .location iframe {
+        width: 80%;
+        height: 25rem;
+    }
+}
+
+
+/* ================================================================   NAV CSS ================================================================================= */
+
+
+
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--layer-nav);
+    background: var(--color-secondary);
+    display: flex;
+    width: 100%;
+}
+
+.site-nav__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1600px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 3vw, 4rem);
+}
+
+
+/* -------------------------
+   LOGO
+------------------------- */
+.site-nav__logo {
+    height: 45px;
+    width: auto;
+}
+
+/* ================= NAV STATE ================= */
+body.open-nav {
+    overflow: hidden;
+}
+
+/* -------------------------
+   NAV PANEL (MOBILE)
+------------------------- */
+.site-nav__links {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 70%;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+
+    background: var(--color-secondary);
+
+    will-change: transform;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: transform var(--transition-medium),
+                opacity var(--transition-medium),
+                visibility 0s;
+
+    z-index: var(--layer-menu);
+
+    /* ADD THESE */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+
+    padding-bottom: 4rem;
+}
+
+.site-nav__links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: flex-start;
+    padding-left: 2rem;
+    padding-top: 8rem;
+}
+
+
+
+/* OPEN STATE */
+.site-nav.open-nav .site-nav__links {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.site-nav__links a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+}
+
+.site-nav__links a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    font-weight: 500;
+}
+
+.site-nav__links > ul > li {
+    border-bottom: 1px solid var(--color-neutral-dark);
+    padding-bottom: 0.5rem;
+    width: 90%;
+}
+
+.site-nav__links .sub-menu li {
+    border-bottom: 1px solid var(--color-accent-alt);
+    padding-bottom: 0.5rem;
+    /* Move the whole item 2rem from the left */
+    margin-left: 2rem; 
+    /* Shrink the width so the border stops 2rem from the right */
+    width: calc(100% - 2rem);
+}
+
+.site-nav__links .sub-menu li:last-child {
+    border-bottom: none;
+}
+
+.site-nav__links li:last-child {
+    border-bottom: none;
+}
+
+.site-nav__links a:hover {
+    opacity: 0.7;
+    color: var(--color-accent-alt);
+}
+
+/* -------------------------
+   OVERLAY
+------------------------- */
+.site-nav__overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity var(--transition-medium),
+                visibility 0s;
+
+    z-index: var(--layer-overlay);
+}
+
+.site-nav.open-nav .site-nav__overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* -------------------------
+   HAMBURGER BUTTON
+------------------------- */
+.site-nav__toggle {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transform-origin: center;
+
+    z-index: var(--layer-toggle);
+}
+
+.site-nav__toggle span {
+    height: 3px;
+    width: 32px;
+    background-color: var(--color-accent-alt);
+    transition: transform 0.3s ease,
+                opacity 0.3s ease,
+                background-color 0.3s ease;
+}
+
+.site-nav.open-nav .site-nav__toggle span:nth-child(1) {
+    transform: translateY(11px) rotate(-45deg);
+    background-color: var(--color-accent);
+}
+
+.site-nav.open-nav .site-nav__toggle span:nth-child(2) {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.site-nav.open-nav .site-nav__toggle span:nth-child(3) {
+    transform: translateY(-11px) rotate(45deg);
+    background-color: var(--color-accent);
+}
+
+/* ----------------------------------------------------------------------- SUBMENU ---------------------------------------------------------------- */
+
+/* Make the li a positioning context so the button sits beside the link */
+.site-nav__links .has-submenu {
+    position: relative;
+}
+
+.site-nav__links .has-submenu > a {
+    display: inline-block;
+}
+
+/* The toggle button, placed on the right */
+.submenu-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background: none;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submenu-arrow {
+    display: inline-block;
+    font-size: 2.1rem;
+    transition: transform 0.25s ease;
+    color: var(--color-accent);
+    padding: 0;
+    margin: -1rem 0 0 0;
+}
+
+/* Rotate arrow when expanded */
+.submenu-toggle[aria-expanded="true"] .submenu-arrow {
+    transform: rotate(180deg);
+}
+
+/* Submenu collapsed by default */
+.site-nav__links .sub-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+/* Expanded state */
+.site-nav__links .sub-menu.is-open {
+    max-height: 600px; /* large enough to fit all items */
+    padding-top: 1rem;
+}
+
+/* Visually hidden helper text for the button label */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+@media (max-width: 768px) {
+
+    /* Remove last decor line from the menu */
+    .site-nav__links li:last-child a::after {
+    display: none;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+
+    .site-nav__toggle {
+        display: none;
+    }
+
+    /* RESET MOBILE MENU INTO DESKTOP NAV */
+    .site-nav__links {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        width: auto;
+        height: auto;
+
+        background: transparent;
+
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .site-nav__links ul {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+
+    /* disable overlay on desktop */
+    .site-nav__overlay {
+        display: none;
+    }
+
+    /* underline animation */
+
+    .site-nav__links a {
+        position: relative;
+        color: var(--color-primary);
+
+        transition: opacity 0.2s ease;
+    }
+
+    .site-nav__links a::after {
+        content: "";
+
+        position: absolute;
+        left: 0;
+        bottom: -12px;
+
+        width: 100%;
+        height: 2px;
+
+        background-color: var(--color-accent);
+
+        transform: scaleX(0);
+        transform-origin: left;
+
+        transition: transform 0.3s ease;
+    }
+
+    .site-nav__links a:hover::after,
+    .site-nav__links a:focus-visible::after,
+    .site-nav__links a.active::after {
+        transform: scaleX(1);
+    }
+
+    /* Desktop doesn't need the click-to-expand arrow — hover handles it */
+    .submenu-toggle {
+        display: none;
+    }
+
+    .site-nav__links {
+        overflow: visible;
+        -webkit-overflow-scrolling: auto;
+        overscroll-behavior: auto;
+    }
+
+    /* Undo the mobile min-height/flex centering trick — it was only
+       needed to make room for the arrow button + separator line */
+    .site-nav__links .has-submenu {
+        min-height: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Turn the submenu into a dropdown instead of an inline accordion */
+    .site-nav__links .sub-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        width: 460px;
+        max-height: none;
+        overflow: visible;
+
+        flex-direction: column;
+        gap: 1rem;
+
+        background: var(--color-secondary);
+        padding: 0.5rem 0;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(8px);
+
+        transition: opacity 0.25s ease,
+                    transform 0.25s ease,
+                    visibility 0s linear 0.25s;
+
+        z-index: 20;
+    }
+
+    /* Show on hover OR keyboard focus within the item */
+    .site-nav__links .has-submenu:hover .sub-menu,
+    .site-nav__links .has-submenu:focus-within .sub-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+
+        transition: opacity 0.25s ease,
+                    transform 0.25s ease,
+                    visibility 0s linear 0s;
+    }
+
+    /* Dropdown items don't need mobile's deep indent */
+    .site-nav__links .sub-menu li a {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /* Specifically for the last menu item (Shop) */
+        .site-nav__links > ul > li:last-child .sub-menu {
+            left: -11rem;
+            right: 0;
+        }
+
+    .site-nav__links > ul > li {
+        border-bottom: none;
+    }
+
+    .site-nav__links .sub-menu li {
+        border-bottom: none;
+    }
+
+    .site-nav__links ul > li {
+        width: auto;
+        flex: none; /* prevents flex-grow/shrink from squeezing items */
+    }
+
+    .site-nav__links a {
+        white-space: nowrap; /* belt-and-braces: never wrap link text */
+    }
+
+    .site-nav__links ul {
+        padding-top: 4rem;
+        align-items: center; /* vertically center items within the row */
+    }
+}
+
+
+
+@media (min-width: 1440px) { 
+
+    .site-nav__links ul {
+        gap: 1.5rem;
+    }
+
+    .site-nav__logo {
+        height: 60px;
+        width: auto;
+    }
+}
+
+@media (min-width: 1920px) { 
+    
+    .site-nav__links ul {
+        gap: 2.5rem;
+    }
+
+    .site-nav__logo {
+        height: 70px;
+        width: auto;
+    }
+
+    header {
+        padding: 4rem 0;
+    }
+
+    .site-nav__container {
+        padding-inline: var(--container-padding);
+    }
+
+}
+
+/* ================================================================  FOOTER ================================================================================= */
+
+footer {
+    background: var(--color-neutral-light);
+}
+
+footer::before,
+.footer-footnote::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 90%;
+    background-color: var(--color-accent);
+    margin: 0 auto;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+footer img {
+    height: 60px;
+    width: auto;
+    margin: 2rem auto;
+}
+
+.footer-list-wrapper a,
+.footer-footnote a {
+    text-decoration: none;
+    color: var(--color-accent);
+
+    transition: color var(--transition-medium);
+}
+
+.footer-list-wrapper a:hover,
+.footer-footnote a:hover {
+
+    color: var(--color-primary);
+} 
+
+.footer-footnote {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-footnote p {
+    margin-bottom: 0;
+    color: var(--color-text);
+}
+
+.footnote-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* ================================================================  HERO CSS ================================================================================= */
+
+.hero-section.section {
+    padding: 0;
+}
+
+.hero-content .container {
+    padding: 0;
+}
+
+.hero-section {
+    position: relative;
+}
+
+.hero-section img {
+    position: relative;
+    width: 100%;
+    height: 90dvh;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    inset: 0;
+    position: absolute;
+    background-color: rgba(56, 52, 56, 0.486);
+    
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+}
+
+.hero-content h1 {
+    color: var(--color-neutral-light);
+}
+
+.hero-content {
+    position: absolute;
+    top: 15rem;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    
+    color: var(--color-secondary);
+    width: 100%;
+    text-shadow: 1px 1px 1px var(--color-primary);
+
+    z-index: 2;
+}
+
+.hero-content p {
+    padding-bottom: 4rem;
+    color: var(--color-neutral-light);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+}
+
+@media(min-width: 768px) {
+    .hero-buttons {
+        gap: 4rem;
+    }
+
+    .hero-buttons a {
+        padding: 0.7rem 6rem;
+    }
+}
+
+@media(min-width: 1920px) {
+    .hero-content.container {
+        max-width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-buttons a {
+        min-width: 350px;
+    }
+}
